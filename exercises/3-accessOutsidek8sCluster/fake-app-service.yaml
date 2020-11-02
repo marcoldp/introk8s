@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fake-app-service
+  namespace: default
+spec:
+  selector:
+    app: fake-app
+  ports:
+  - protocol: TCP
+    port: 8080
+  type: LoadBalancer
