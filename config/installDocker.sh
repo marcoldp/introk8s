@@ -29,7 +29,7 @@ do
                 "docker ps " \
                 "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES" \
             curl -fsSL https://get.docker.com -o get-docker.sh
-            sudo sh ./get-docker.sh
+            sudo sh get-docker.sh
             sudo usermod -aG docker ${USER}
             rm get-docker.sh
             echo "  Docker installed in your machine!"
