@@ -3,7 +3,7 @@ This workshop provides a basic walkthrough of the basics of kubernetes.
 
 Based on the tutorial on the [official kubernetes pages](https://kubernetes.io/docs/tutorials/kubernetes-basics/) 
 
-** Requirements: **
+**Requirements:**
 
 * Machine with Linux or MacOS with git installed :
 
@@ -24,7 +24,7 @@ It is divided in 3 exercises:
 
 * Expose your app publicly
 
-** How to use: **
+**How to use:**
 
 Configure the environment using the Makefile.
 Using the Makefile you can check the targets available by using 'make help' or simply 'make'
