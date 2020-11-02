@@ -2,6 +2,7 @@
 This workshop provides a basic walkthrough of the basics of kubernetes. 
 
 Based on the tutorial on the [official kubernetes pages](https://kubernetes.io/docs/tutorials/kubernetes-basics/) 
+
 I advise to do that after this workshop but try to use your own minikube for the exercises.
 
 It is divided in 3 exercises:
