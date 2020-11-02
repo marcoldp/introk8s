@@ -29,8 +29,8 @@ It is divided in 3 exercises:
 Configure the environment using the Makefile.
 Using the Makefile you can check the targets available by using 'make help' or simply 'make'
 
-1. 'make dockerInstall' to install docker on the machine, if not already installed
-2. 'make minikubeInstall' to install minikube and allow to create a local kubernetes cluster
+1. `make dockerInstall` to install docker on the machine, if not already installed
+2. `make minikubeInstall` to install minikube and allow to create a local kubernetes cluster
 
 Then you can go to the folder exercises/ and perform the commands there.
 There's also available targets to launch those commands.
