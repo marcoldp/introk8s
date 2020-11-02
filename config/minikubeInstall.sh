@@ -19,7 +19,7 @@ installMinikube(){
     echo "- Retriving and installing Minikube binary.."
     if [ "$1" = "macOS" ]; then
         binaryName="minikube-darwin-amd64"
-    elif "$1" = "linux"; then
+    elif [ "$1" = "linux" ]; then
         binaryName="minikube-linux-amd64"
     fi
     curl -LOs https://storage.googleapis.com/minikube/releases/latest/$binaryName
