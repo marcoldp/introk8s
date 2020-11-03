@@ -37,7 +37,7 @@ Then you can go to the folder exercises/ and perform the commands there.
 But there's no fun in doing that ;)
 
 
-Important Links:
+**Important Links:**
 
 [Docker](https://www.docker.com)
 
