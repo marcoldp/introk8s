@@ -37,10 +37,4 @@ Then you can go to the folder exercises/ and perform the commands there.
 But there's no fun in doing that ;)
 
 
-**Important Links:**
-
-[Docker](https://www.docker.com)
-
-[DockerHub](https://hub.docker.com)
-
-[Kubernetes](https://kubernetes.io)
+**Important Links:** [Docker](https://www.docker.com) [DockerHub](https://hub.docker.com) [Kubernetes](https://kubernetes.io)
