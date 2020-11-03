@@ -34,11 +34,12 @@ Using the Makefile you can check the targets available by using 'make help' or s
 2. `make minikubeInstall` to install minikube and allow to create a local kubernetes cluster
 
 Then you can go to the folder exercises/ and perform the commands there.
-There's also available targets to launch those commands.
 But there's no fun in doing that ;)
 
 
 Important Links:
-Docker
-DockerHub
-Kubernetes
+[Docker](https://www.docker.com)
+
+[DockerHub](https://hub.docker.com)
+
+[Kubernetes](https://kubernetes.io)
