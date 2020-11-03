@@ -24,25 +24,20 @@ do
     case $opt in 
         # Linux
         "Linux")
-            checkInstallation \
-                "Docker" \
-                "docker ps " \
-                "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES" \
+            checkInstallation "Docker" "docker ps " "CONTAINER ID" 
+            cd "$(dirname "$0")"
             curl -fsSL https://get.docker.com -o get-docker.sh
-            sudo sh ./get-docker.sh
-            sudo usermod -aG docker ${USER}
-            rm get-docker.sh
-            echo "  Docker installed in your machine!"
-            echo "  You need to restart it so you can now use it :)"
+            echo "  Now run the following commands in your machine:"
+            echo "  sudo sh get-docker.sh"
+            echo "  sudo groupadd docker"
+            echo "  sudo usermod -aG docker ${USER}"
+            echo "  You need to restart the machine after so you can  use it :)"
             exit 0
         ;;
         
         # macOS
         "macOS")
-            checkInstallation \
-                "Docker" \
-                "docker ps" \
-                "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES" \
+            checkInstallation "Docker" "docker ps" "CONTAINER ID" 
             echo "  Dowloading Docker Destop. This can take a few minutes..."
             curl -LO https://desktop.docker.com/mac/stable/Docker.dmg
             echo "  Now you just need to double click on the double file to install it!"

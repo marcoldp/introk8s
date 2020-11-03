@@ -14,16 +14,3 @@ dockerInstall: ## Install and check docker installation on current machine
 .PHONY: cleanEnvTest
 cleanEnvTest: ## Removes all the configuration installed during the workshop
 	./config/cleanEnvTest.sh
-
-#----------------EXERCISE SOLUTIONS-------------------
-.PHONY: solutionExercise1
-solutionExercise1: ## Exercise 1 - Create cluster using minikube
-	./exercises/1-createCluster/commands.sh
-
-.PHONY: solutionExercise2
-solutionExercise2: ## Exercise 2 - Deploy application using DockerHub registry
-	./exercises/2-deployFakeApp/commands.sh
-
-.PHONY: solutionExercise3
-solutionExercise3: ## Exercise 3 - Allow to access outside the k8s cluster
-	./exercises/3-accessOutsidek8sCluster/commands.sh

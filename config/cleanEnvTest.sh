@@ -1,7 +1,8 @@
 #!/bin/bash
 # This script allows to clean all the confs executed during our tests 
-kubectl delete service fake-app-service
-kubectl delete deployment fake-app-deployment
+kubectl delete service fake-app
+kubectl delete deployment fake-app
+sleep 10
 minikube stop
 minikube delete && docker stop $(docker ps -aq)
 rm -rf ~/.minikube && sudo rm -rf /usr/local/bin/minikube

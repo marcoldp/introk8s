@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: fake-app-service
-  namespace: default
+  name: fake-app
 spec:
   selector:
     app: fake-app
   ports:
   - protocol: TCP
     port: 8080
-  type: LoadBalancer
+  type: LoadBalancer # indicates that we want to expose our Service outside of the cluster. 
+                     # On cloud providers that support load balancers, an external IP address would be provisioned to access the Service.

@@ -1,0 +1,75 @@
+
+# Now let's deploy the application
+# First, check the folder where the application is. 
+cd exercises/2-deployFakeApp
+
+
+# You'll notice a folder containing our application golang code, a Dockerfile and a yaml file
+# Check the code of the fake app
+cat main/fakeApp.go
+
+# As you can see is a simple REST API wrote in Go programming language that writes Fake APP test
+# you can test localy using 'go run fakeApp.go' and checking the result in your browser at http://localhost:8080/api/fakeapp
+# But note you need to install go locally. Check the official pages later to do that if you want at https://golang.org
+
+# Now let's deploy the application using a kubernetes deployment
+# Open the file fake-app-deployment.yaml
+cat fake-app-deployment.yaml
+
+# To deploy the deployment using the file you should use the following command
+kubectl apply -f fake-app-deployment.yaml
+
+# This will:
+# - search for a suitable node to run the application
+# - schedule the application to run on that Node
+# - configure the cluster to reschudle the instance on a new Node when needed
+
+# So the deployment didn't work? why?
+# let's check 
+# Use the following command
+kubectl describe pod [POD_NAME] # get the pod name using kubectl get pods 
+
+# So we get the error Error: ErrImagePull -> ImagePullBackOff
+# Which means we coudn't find the image on the local or remote docker repository
+# Check the fake-app-deployment.yaml
+# Let's check if it exists on the local docker repo 
+docker images
+
+# As you can see there's no fake-app image
+# Not on docker hub https://hub.docker.com/search?q=fake-app&type=image
+# What makes sense because we haven't even create a docker image of our app yet
+
+# So let's create our image
+# go to the fakeApp folder
+# change the container image on the deployment yaml to yourUsername/fakeapp:0.0.1 . (so in the form repository/appName:version)
+docker build -f Dockerfile -t $your_image . # with your credentials
+
+# So the command means build docker image from Dockerfile with the tag that we gave and using the local path
+# It migth take some time to finish this step
+# When its finish it should be possible to 
+docker images
+
+# Now where can we deploy the image: local docker registry, dockerHub (the online), minikube registry
+# Let's do it on the dockerHub create a dockerHub account using the link https://hub.docker.com
+# then create a fakeapp repo on the dockerHub
+# Now let's push the local image to dockerHub
+docker login --username $YOUR_DOCKER_USER
+docker push $YOUR_IMAGE
+
+# Check in the dockerhub resgistry that you have the image available
+# Now let's update the version on the deployment
+kubectl set image deployments/fake-app fake-app=$your_image
+
+# Check the resources on the cluster and check what will happen
+kubectl get all
+
+# Creates another replica set and another pod that is in containerCreating
+# When that one finnishes it will delete the last one
+
+# Now how to test the application is really working
+# Let's acces the container and do a wget of our api
+kubectl exec -ti $POD_NAME -c fake-app -- /bin/sh
+wget -S http://localhost:8080/api/fakeapp
+
+# As you can see the file is downloaded
+# But how can we access it? 

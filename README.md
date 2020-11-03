@@ -37,4 +37,7 @@ Using the Makefile you can check the targets available by using 'make help' or s
 1. 'make dockerInstall' to install docker on the machine, if not already installed
 2. 'make minikubeInstall' to install minikube and allow to create a local kubernetes cluster
 
-
+Important Links:
+Docker
+DockerHub
+Kubernetes

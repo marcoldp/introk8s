@@ -19,7 +19,7 @@ installMinikube(){
     echo "- Retriving and installing Minikube binary.."
     if [ "$1" = "macOS" ]; then
         binaryName="minikube-darwin-amd64"
-    elif "$1" = "linux"; then
+    elif [ "$1" = "linux" ]; then
         binaryName="minikube-linux-amd64"
     fi
     curl -LOs https://storage.googleapis.com/minikube/releases/latest/$binaryName
@@ -39,33 +39,17 @@ do
     case $opt in 
         # Linux
         "Linux")
-            checkInstallation \
-                "Docker" \
-                "docker ps " \
-                "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES" \
-                " Install docker using 'make installDocker' or try to restart machine if still problem! Troubleshooting in $dockerInstallation"
+            checkInstallation "Docker" "docker ps " "CONTAINER ID" " Install docker using 'make installDocker' or try to restart machine if still problem! Troubleshooting in $dockerInstallation"
             installMinikube "linux"
-            checkInstallation \
-                "minikube" \
-                "minikube version" \
-                "minikube version: v"\
-                "  Check the minikube official website for troubleshooting $minikubeWebsite"
+            checkInstallation "minikube" "minikube version" "minikube version: v" "  Check the minikube official website for troubleshooting $minikubeWebsite"
             exit 0
         ;;
         
         # macOS
         "macOS")
-            checkInstallation \
-                "Docker" \
-                "docker ps" \
-                "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES" \
-                " Install docker using 'make installDocker' or try to restart machine if still problem! Troubleshooting in $dockerInstallation"
+            checkInstallation "Docker" "docker ps" "CONTAINER ID" " Install docker using 'make installDocker' or try to restart machine if still problem! Troubleshooting in $dockerInstallation"
             installMinikube "macOS"
-            checkInstallation \
-                "minikube"\
-                "minikube version" \
-                "minikube version: v1.14" \
-                "  Check the minikube official website for troubleshooting $minikubeWebsite"
+            checkInstallation "minikube" "minikube version" "minikube version: v" "  Check the minikube official website for troubleshooting $minikubeWebsite"
             exit 0
         ;;
         

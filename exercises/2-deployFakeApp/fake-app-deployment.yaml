@@ -1,21 +1,21 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
+apiVersion: apps/v1 #kubernetes api version
+kind: Deployment #specifies the kubernetes obj/resource
+metadata: #data that helps specify unique information about the object
   name: fake-app
   labels:
     app: fake-app
-spec:
-  replicas: 1
-  selector:
+spec: 
+  replicas: 1 # how many pods to create
+  selector: # defines which pods should be managed by the deployment
     matchLabels:
       app: fake-app
-  template:
+  template: # describes all instructions executed in the pod
     metadata:
       labels:
         app: fake-app
-    spec:
+    spec: # contains the actual description of the Pods contents
       containers:
         - name: fake-app
-          image: marcoldp/fakeapp:v0.0.2
+          image: fakeapp:v0.0.1
           ports:
             - containerPort: 8080

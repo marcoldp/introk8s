@@ -3,12 +3,18 @@
 # Check the minikube is already installed. To check is installation
 minikube version
 
+# Check the docker containers running
+
 # Start the k8s cluster
 minikube start
 
 # The k8s is running in your machine and minikube will create a cluster using the selected hypervisor, docker by default
 # If you now check docker you'll see the minikube docker container running
 docker ps
+
+# Now you can install the kubectl cli to use in the bash or you can use mimikube + command to run the following commands
+# check here to know how to install : https://kubernetes.io/docs/tasks/tools/install-kubectl/ 
+# No automatic script yet :) 
 
 # Now to interact with the cluster we can use the kubectl
 # By running the folling command you'll be abble to check the versions on both the client - kubectl - and the master - kubernetes version in the master

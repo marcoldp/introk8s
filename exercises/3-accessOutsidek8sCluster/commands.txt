@@ -1,0 +1,20 @@
+
+# So by default the Pod is only accessible by the its internal IP adress within the cluster
+# To make the container accessible from the outside the cluster virtual network, we need to expose the Pod as a kuberentes service
+# Open and analyse the fake-app-service.yaml
+kubectl apply -f fake-app-service.yaml
+
+# then if you check the service was create using 
+kubectl get services
+# So as you can see there's an external -ip pending
+# That's because of the minikube to expose a service outise the cluster you need to do:
+minikube service fake-app-service
+
+# Now if you change the endpoint you should see the fake app test string
+change the api and its ok
+
+or kubectl expose deployment fake-app --type=LoadBalancer
+
+check logs to see response
+
+To think how to update the version of the application and how to scale, increase number of replicas of the pod in the cluster?
