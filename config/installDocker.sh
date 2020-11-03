@@ -27,11 +27,19 @@ do
             checkInstallation "Docker" "docker ps " "CONTAINER ID" 
             cd "$(dirname "$0")"
             curl -fsSL https://get.docker.com -o get-docker.sh
+<<<<<<< HEAD
             echo "  Now run the following commands in your machine:"
             echo "  sudo sh get-docker.sh"
             echo "  sudo groupadd docker"
             echo "  sudo usermod -aG docker ${USER}"
             echo "  You need to restart the machine after so you can  use it :)"
+=======
+            sudo sh get-docker.sh
+            sudo usermod -aG docker ${USER}
+            rm get-docker.sh
+            echo "  Docker installed in your machine!"
+            echo "  You need to restart it so you can now use it :)"
+>>>>>>> 10831ee7e38eac6ec6f023d0215f3dbe84263544
             exit 0
         ;;
         
